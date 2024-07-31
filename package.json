@@ -1,0 +1,23 @@
+{
+  "name": "video-transcoder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/index\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-ecs": "^3.529.0",
+    "@aws-sdk/client-sqs": "^3.529.0",
+    "aws-lambda": "^1.0.7",
+    "dotenv": "^16.4.5",
+    "fast-xml-parser": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.142",
+    "@types/node": "^22.0.0",
+    "tsc-watch": "^6.2.0"
+  },
+  "description": "highly scaleable video transcoding pipeline"
+}
