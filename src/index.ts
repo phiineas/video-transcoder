@@ -1,13 +1,16 @@
 import { ReceiveMessageCommand, SQSClient, DeleteMessageCommand } from '@aws-sdk/client-sqs';
 import { ECSClient, RunTaskCommand } from '@aws-sdk/client-ecs';
 import type { S3Event } from 'aws-lambda';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const region = process.env.AWS_REGION || "ap-south-1";
-const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+const accessKeyId = process.env.AWSACCESSKEYID;
+const secretAccessKey = process.env.AWSSECRETACCESSKEY;
 
 if (!accessKeyId || !secretAccessKey) {
-    throw new Error("AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be defined");
+    throw new Error("AWSACCESSKEYID and AWSSECRETACCESSKEY must be defined");
 }
 
 const client = new SQSClient({
